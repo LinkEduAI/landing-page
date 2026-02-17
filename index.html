@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pt-BR">
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17870989726"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17870989726');
+</script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinkEduAi - Gestão Escolar com Inteligência Artificial</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            purple: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5', // Cor Principal
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .card-hover:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Estilos para o FAQ */
+    .faq-content {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease;
+    }
+
+    .faq-active .faq-content {
+      max-height: 300px;
+      opacity: 1;
+      padding-bottom: 1.5rem;
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-active .faq-icon {
+      transform: rotate(45deg);
+      color: #4f46e5;
+      background-color: #e0e7ff;
+      border-color: #c7d2fe;
+    }
+
+    @keyframes swipe-hint {
+
+      0%,
+      100% {
+        transform: translateX(0);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateX(5px);
+        opacity: 1;
+      }
+    }
+
+    .animate-swipe {
+      animation: swipe-hint 1.5s infinite;
+    }
+
+    /* Nova Animação de Flutuação Suave para o WhatsApp */
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .floating-btn {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-whatsapp {
+      0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        transform: scale(1);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+        transform: scale(1.05);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        transform: scale(1);
+      }
+    }
+
+    .btn-whatsapp-pulse {
+      animation: pulse-whatsapp 2s infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-white font-sans text-gray-900">
+
+  <a href="https://wa.me/5511914097469" target="_blank" aria-label="Fale conosco no WhatsApp"
+    class="btn-whatsapp-pulse fixed bottom-6 right-6 z-[100] w-14 h-14 md:w-16 md:h-16 bg-[#25d366] text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-[#20ba5a] transition-all duration-300">
+    <i class="fab fa-whatsapp text-3xl md:text-4xl"></i>
+  </a>
+
+  <header class="bg-white/90 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 transition-all">
+    <nav class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <i class="fas fa-graduation-cap text-2xl md:text-3xl mr-2 md:mr-3 text-purple-600"></i>
+          <h1 class="text-xl md:text-2xl font-bold tracking-tight text-gray-800">LinkEduAi</h1>
+        </div>
+
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="#inicio" class="text-gray-600 hover:text-purple-600 font-medium transition">Início</a>
+          <a href="#funcionalidades"
+            class="text-gray-600 hover:text-purple-600 font-medium transition">Funcionalidades</a>
+          <a href="#faq" class="text-gray-600 hover:text-purple-600 font-medium transition">Dúvidas Frequentes</a>
+          <a href="#contato"
+            class="bg-purple-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-purple-700 transition shadow-lg shadow-purple-100 text-sm">
+            Falar com Consultor
+          </a>
+        </div>
+
+        <div class="md:hidden">
+          <a href="#contato" class="bg-purple-600 text-white px-4 py-2 rounded-full font-bold text-xs shadow-md">
+            Testar Agora
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section id="inicio"
+    class="bg-gradient-to-t from-purple-100 via-purple-50 to-white pt-16 pb-24 relative overflow-hidden">
+    <div class="container mx-auto px-6 flex flex-col items-center">
+      <div class="text-center max-w-5xl animate-fade-in-up">
+
+        <div
+          class="inline-flex items-center bg-purple-50 text-purple-700 px-4 py-1.5 rounded-full text-xs font-bold mb-8 border border-purple-100 uppercase tracking-wide">
+          <i class="fas fa-robot mr-2"></i> Nova funcionalidade: IA Pedagógica
+        </div>
+
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900">
+          Gestão Escolar com <br>
+          <span class="text-purple-600">Inteligência Artificial</span>
+        </h2>
+
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+          Transforme a gestão pedagógica da sua escola. Com nossa IA, você prevê notas vermelhas a tempo de reverter o
+          cenário e garantir o sucesso do aluno.
+        </p>
+
+        <div class="w-full max-w-4xl mx-auto mb-12">
+          <img src="banner3.png" alt="Interface do Sistema LinkEduAi" class="w-full h-auto drop-shadow-2xl">
+        </div>
+
+        <div class="flex flex-col w-full sm:w-auto sm:flex-row gap-4 justify-center">
+          <a href="#contato" onclick="focarFormulario('Quero conhecer a IA')"
+            class="bg-purple-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-purple-700 transition duration-300 shadow-xl shadow-purple-200 flex items-center justify-center transform hover:scale-105 text-center">
+            <i class="fas fa-rocket mr-2"></i> Ver a IA em Ação
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="funcionalidades" class="bg-white py-16 relative">
+    <div class="container mx-auto px-6 flex flex-col items-center">
+
+      <div class="w-full max-w-6xl mx-auto -mt-10 md:mt-0 space-y-12">
+
+        <div
+          class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          <div class="flex flex-col md:flex-row">
+
+            <div class="w-full md:w-5/12 relative h-64 md:h-auto border-b md:border-b-0 md:border-r border-gray-100">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+                alt="Conexões digitais em fundo claro representando IA"
+                class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-white/10"></div>
+            </div>
+
+            <div class="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+              <div
+                class="inline-flex items-center gap-2 text-purple-600 font-bold text-xs uppercase tracking-wider mb-3">
+                <i class="fas fa-brain"></i> Inteligência Artificial
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+                Antecipe o futuro, proteja o aprendizado
+              </h3>
+
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
+                Nossa IA analisa o desempenho do aluno e envia alertas preventivos diretamente aos pais. Não espere o
+                boletim chegar para descobrir surpresas.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
+                Os responsáveis conseguem visualizar claramente onde o filho está indo bem e onde precisa de mais apoio,
+                permitindo agir antes mesmo das provas finais.
+              </p>
+
+              <div>
+                <button onclick="focarFormulario('Detalhes: IA Preditiva')"
+                  class="inline-flex items-center text-purple-700 font-bold text-base bg-purple-50 border border-purple-200 px-8 py-3 rounded-xl hover:bg-purple-100 transition-colors shadow-sm">
+                  Conhecer a Tecnologia <i class="fas fa-arrow-right ml-3 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          <div class="flex flex-col md:flex-row">
+
+            <div class="w-full md:w-5/12 relative h-64 md:h-auto">
+              <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=2070&auto=format&fit=crop"
+                alt="Pessoas conversando via chat" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-purple-900/10"></div>
+            </div>
+
+            <div class="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+              <div
+                class="inline-flex items-center gap-2 text-purple-600 font-bold text-xs uppercase tracking-wider mb-3">
+                <i class="fas fa-comments"></i> Chat Seguro
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+                Comunicação oficial e organizada
+              </h3>
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
+                Acabe com o caos dos grupos de WhatsApp e a desorganização da agenda de papel. Ofereça um canal oficial,
+                seguro e auditável, centralizando recados, autorizações e dúvidas em um único lugar.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
+                O chat é seguro e moderado, permitindo a definição de horários de atendimento, confirmação de leitura
+                das mensagens e suporte completo para assinaturas e autorizações digitais.
+              </p>
+
+              <div>
+                <button onclick="focarFormulario('Detalhes: Comunicação Escolar')"
+                  class="inline-flex items-center text-purple-700 font-bold text-base bg-purple-50 border border-purple-200 px-8 py-3 rounded-xl hover:bg-purple-100 transition-colors shadow-sm">
+                  Conhecer o Chat <i class="fas fa-arrow-right ml-3 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+          <div class="flex flex-col md:flex-row">
+
+            <div class="w-full md:w-5/12 relative h-64 md:h-auto">
+              <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=2070&auto=format&fit=crop"
+                alt="Smartphone com aplicativo" class="absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-purple-900/10"></div>
+            </div>
+
+            <div class="w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+              <div
+                class="inline-flex items-center gap-2 text-purple-600 font-bold text-xs uppercase tracking-wider mb-3">
+                <i class="fas fa-mobile-alt"></i> Aplicativo Móvel
+              </div>
+              <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4 tracking-tight">
+                A família engajada com a escola
+              </h3>
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-4">
+                Aumente a satisfação dos pais entregando transparência. Com o aplicativo, os responsáveis acompanham a
+                rotina escolar em tempo real, criando um vínculo de confiança inabalável com a instituição.
+              </p>
+              <p class="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
+                Tudo em um só lugar: galeria de fotos segura dos eventos, agenda de tarefas de casa, cardápio semanal da
+                cantina e facilidade na emissão da 2ª via de boletos financeiros.
+              </p>
+
+              <div>
+                <button onclick="focarFormulario('Detalhes: App e Fotos')"
+                  class="inline-flex items-center text-purple-700 font-bold text-base bg-purple-50 border border-purple-200 px-8 py-3 rounded-xl hover:bg-purple-100 transition-colors shadow-sm">
+                  Ver o App <i class="fas fa-arrow-right ml-3 text-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-20 text-center max-w-3xl mx-auto animate-fade-in-up">
+        <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Isso é apenas uma pequena parte...
+        </h4>
+        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+          O LinkEduAi possui muitas outras ferramentas para transformar sua gestão. Entre em contato para solicitar uma
+          demonstração e ver <strong>todas as funcionalidades</strong> do nosso aplicativo.
+        </p>
+        <a href="#contato" onclick="focarFormulario('Quero ver TODAS as funcionalidades')"
+          class="inline-flex items-center justify-center text-purple-600 font-bold text-lg hover:text-purple-800 transition-colors group border-b-2 border-transparent hover:border-purple-600 pb-1">
+          Solicitar demonstração completa
+          <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq" class="py-16 bg-white border-t border-gray-100">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <div class="text-center mb-12">
+        <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4">Dúvidas Frequentes</h3>
+        <p class="text-gray-600">Entenda como o LinkEduAi pode transformar sua escola hoje.</p>
+      </div>
+
+      <div class="space-y-4">
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">A IA consegue mesmo
+              prever as notas?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              Sim! Nossa inteligência analisa o histórico de frequência, comportamento e notas anteriores. Com esses
+              dados, ela identifica padrões de risco e alerta a coordenação antes que o problema se torne irreversível.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">É difícil migrar os
+              dados da minha escola?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              De forma alguma. Temos uma equipe dedicada à implantação que faz a importação de todas as turmas, alunos e
+              professores em até 48 horas úteis. Você não começa do zero.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">O aplicativo funciona em
+              iOS e Android?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              Perfeitamente. Temos aplicativos nativos para ambas as plataformas, além de uma versão Web completa para
+              acesso via computadores da secretaria e sala dos professores.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">Os dados dos alunos
+              estão seguros?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              Segurança é nossa prioridade absoluta. Utilizamos criptografia de ponta a ponta e estamos 100% adequados à
+              LGPD (Lei Geral de Proteção de Dados) para garantir a privacidade de todos.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">Os pais conseguem
+              acompanhar as notas e faltas?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              Com certeza! O Boletim Digital é atualizado em tempo real. Os pais podem visualizar notas, faltas e
+              ocorrências diretamente pelo aplicativo, eliminando a surpresa no final do bimestre.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="group bg-gray-50 rounded-xl overflow-hidden border border-gray-100 hover:border-purple-200 transition-colors">
+          <button onclick="toggleFaq(this)"
+            class="w-full flex items-center justify-between p-5 text-left focus:outline-none">
+            <span class="font-bold text-gray-800 group-hover:text-purple-700 transition-colors">É possível enviar
+              comunicados e fotos para as turmas?</span>
+            <div
+              class="faq-icon text-gray-400 bg-white w-8 h-8 rounded-full flex items-center justify-center shadow-sm border border-gray-200">
+              <i class="fas fa-plus text-sm"></i>
+            </div>
+          </button>
+          <div class="faq-content bg-white px-5 border-t border-gray-100">
+            <div class="text-gray-600 text-sm leading-relaxed">
+              Sim. A escola pode enviar comunicados gerais ou segmentados. Além de texto, é possível anexar fotos de
+              passeios, PDFs de tarefas e circulares, garantindo que a informação chegue na palma da mão dos pais.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="py-16 md:py-24 bg-gray-50">
+    <div class="container mx-auto px-6">
+      <div
+        class="max-w-6xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
+
+        <div class="bg-purple-900 md:w-5/12 p-8 md:p-12 text-white flex flex-col justify-center relative">
+          <h3 class="text-2xl md:text-3xl font-bold mb-6 relative z-10 text-center md:text-left">Fale com um
+            especialista</h3>
+          <ul class="space-y-4 mb-8 relative z-10 text-sm md:text-base">
+            <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3"></i> Implantação rápida
+            </li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3"></i> Suporte humanizado
+            </li>
+            <li class="flex items-center"><i class="fas fa-check-circle text-purple-400 mr-3"></i> Demo sem compromisso
+            </li>
+          </ul>
+        </div>
+
+        <div class="md:w-7/12 p-6 md:p-12 bg-white">
+          <div class="mb-6">
+            <h4 class="text-xl md:text-2xl font-bold text-gray-800 text-center md:text-left">Solicitar Demonstração</h4>
+            <p class="text-gray-500 text-xs md:text-sm text-center md:text-left">Preencha para liberar seu acesso de
+              teste.</p>
+          </div>
+
+          <form action="https://formspree.io/f/xqedenwy" method="POST" class="space-y-4">
+            <input type="hidden" name="origem" value="Landing Page IA Preditiva">
+            <div>
+              <label class="block text-gray-700 font-bold mb-1 text-xs uppercase">E-mail Profissional</label>
+              <div class="relative">
+                <span class="absolute left-4 top-3.5 text-gray-400"><i class="fas fa-envelope"></i></span>
+                <input type="email" name="email" placeholder="diretoria@escola.com.br" required
+                  class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 outline-none transition bg-gray-50 text-sm">
+              </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-gray-700 font-bold mb-1 text-xs uppercase">Escola</label>
+                <div class="relative">
+                  <span class="absolute left-4 top-3.5 text-gray-400"><i class="fas fa-school"></i></span>
+                  <input type="text" name="instituicao" placeholder="Nome da Escola" required
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 outline-none transition bg-gray-50 text-sm">
+                </div>
+              </div>
+              <div>
+                <label class="block text-gray-700 font-bold mb-1 text-xs uppercase">WhatsApp</label>
+                <div class="relative">
+                  <span class="absolute left-4 top-3.5 text-gray-400"><i class="fab fa-whatsapp"></i></span>
+                  <input type="tel" name="whatsapp" placeholder="(DDD) 9..." required
+                    class="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 outline-none transition bg-gray-50 text-sm">
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-700 font-bold mb-1 text-xs uppercase">Observação</label>
+              <textarea id="campo-mensagem" name="mensagem" rows="2"
+                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-100 outline-none transition bg-gray-50 text-sm">Quero testar a plataforma.</textarea>
+            </div>
+            <button type="submit"
+              class="w-full bg-purple-600 text-white font-bold py-4 rounded-xl hover:bg-purple-700 hover:shadow-lg transform hover:-translate-y-1 transition duration-300 uppercase tracking-widest text-xs md:text-sm flex items-center justify-center shadow-purple-500/30 shadow-lg">
+              <i class="fas fa-lock-open mr-2"></i> Liberar Acesso Demo
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+    <div class="container mx-auto px-6 text-center">
+      <div class="flex items-center justify-center mb-4">
+        <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+          <i class="fas fa-graduation-cap text-xl"></i>
+        </div>
+        <span class="text-xl font-bold">LinkEduAi</span>
+      </div>
+      <p class="text-gray-500 text-sm">&copy; 2026 LinkEduAi.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(button) {
+      const item = button.parentElement;
+      item.classList.toggle('faq-active');
+    }
+
+    function focarFormulario(textoInteresse) {
+      const secaoContato = document.getElementById('contato');
+      const inputMensagem = document.getElementById('campo-mensagem');
+      if (secaoContato && inputMensagem) {
+        secaoContato.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          inputMensagem.value = "Tenho interesse em: " + textoInteresse;
+          inputMensagem.focus();
+          inputMensagem.style.borderColor = "#4f46e5";
+          inputMensagem.style.backgroundColor = "#eef2ff";
+        }, 500);
+      }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if (!this.getAttribute('onclick')) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
